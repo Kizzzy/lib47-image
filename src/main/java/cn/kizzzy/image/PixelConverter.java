@@ -1,6 +1,6 @@
 package cn.kizzzy.image;
 
-import cn.kizzzy.io.DataInputStreamEx;
+import cn.kizzzy.io.FullyReader;
 
 import java.io.IOException;
 
@@ -10,5 +10,5 @@ public interface PixelConverter {
     
     int getCol();
     
-    int[] read(DataInputStreamEx reader) throws IOException;
+    int[] read(FullyReader reader) throws IOException;
 }

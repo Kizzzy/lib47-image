@@ -1,7 +1,7 @@
 package cn.kizzzy.image.converter;
 
 import cn.kizzzy.image.PixelConverter;
-import cn.kizzzy.io.DataInputStreamEx;
+import cn.kizzzy.io.FullyReader;
 
 import java.io.IOException;
 
@@ -16,7 +16,7 @@ public abstract class AbstractPixelConverter implements PixelConverter {
         this.col = col;
     }
     
-    public int[] read(DataInputStreamEx reader) throws IOException {
+    public int[] read(FullyReader reader) throws IOException {
         int[] temp = new int[count];
         for (int k = 0; k < count; ++k) {
             temp[k] = reader.read();
