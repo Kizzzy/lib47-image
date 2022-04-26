@@ -4,7 +4,7 @@ import cn.kizzzy.helper.LogHelper;
 import cn.kizzzy.image.ImageCreator;
 import cn.kizzzy.image.PixelConverter;
 import cn.kizzzy.image.PixelConverterSelector;
-import cn.kizzzy.io.FullyReader;
+import cn.kizzzy.io.IFullyReader;
 
 public abstract class ImageCreatorAdapter<T, R> implements ImageCreator<T, R> {
     
@@ -26,7 +26,7 @@ public abstract class ImageCreatorAdapter<T, R> implements ImageCreator<T, R> {
     
     protected abstract R CreateImpl(T item, Callback<R> callback) throws Exception;
     
-    public static int[] readPixel(FullyReader reader, PixelConverter converter, int width, int height) throws Exception {
+    public static int[] readPixel(IFullyReader reader, PixelConverter converter, int width, int height) throws Exception {
         int row = converter.getRow();
         int col = converter.getCol();
         
