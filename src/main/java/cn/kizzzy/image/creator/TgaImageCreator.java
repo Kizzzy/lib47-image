@@ -22,6 +22,6 @@ public class TgaImageCreator extends ImageCreatorAdapter<TgaFile, BufferedImage>
                 return callback.invoke(pixels, width, height);
             }
         }
-        return null;
+        throw new IllegalArgumentException("Unknown Type: " + item.iocmd);
     }
 }

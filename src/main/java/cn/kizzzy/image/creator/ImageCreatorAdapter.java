@@ -1,10 +1,11 @@
 package cn.kizzzy.image.creator;
 
-import cn.kizzzy.helper.LogHelper;
 import cn.kizzzy.image.ImageCreator;
 import cn.kizzzy.image.PixelConverter;
 import cn.kizzzy.image.PixelConverterSelector;
 import cn.kizzzy.io.IFullyReader;
+
+import java.util.Objects;
 
 public abstract class ImageCreatorAdapter<T, R> implements ImageCreator<T, R> {
     
@@ -15,13 +16,10 @@ public abstract class ImageCreatorAdapter<T, R> implements ImageCreator<T, R> {
     }
     
     @Override
-    public R Create(T item, Callback<R> callback) {
-        try {
-            return CreateImpl(item, callback);
-        } catch (Exception e) {
-            LogHelper.error("Convert Image Data Error: ", e);
-            return null;
-        }
+    public R Create(T item, Callback<R> callback) throws Exception {
+        Objects.requireNonNull(item);
+        Objects.requireNonNull(callback);
+        return CreateImpl(item, callback);
     }
     
     protected abstract R CreateImpl(T item, Callback<R> callback) throws Exception;

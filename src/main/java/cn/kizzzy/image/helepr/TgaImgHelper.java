@@ -12,7 +12,7 @@ public class TgaImgHelper {
     private static final ImageCreator<TgaFile, BufferedImage> creator
         = new TgaImageCreator();
     
-    public static BufferedImage toImage(TgaFile tgaFile) {
+    public static BufferedImage toImage(TgaFile tgaFile) throws Exception {
         return creator.Create(tgaFile, new BufferedImageCallback());
     }
 }

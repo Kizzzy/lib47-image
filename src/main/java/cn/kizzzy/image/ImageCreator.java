@@ -7,5 +7,5 @@ public interface ImageCreator<T, R> {
         T invoke(int[] data, int width, int height) throws Exception;
     }
     
-    R Create(T item, Callback<R> callback);
+    R Create(T item, Callback<R> callback) throws Exception;
 }
