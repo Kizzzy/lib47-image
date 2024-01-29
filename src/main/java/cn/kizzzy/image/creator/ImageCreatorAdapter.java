@@ -7,7 +7,7 @@ import cn.kizzzy.io.IFullyReader;
 
 import java.util.Objects;
 
-public abstract class ImageCreatorAdapter<T, R> implements ImageCreator<T, R> {
+public abstract class ImageCreatorAdapter<T> implements ImageCreator<T> {
     
     protected PixelConverterSelector selector;
     
@@ -16,13 +16,13 @@ public abstract class ImageCreatorAdapter<T, R> implements ImageCreator<T, R> {
     }
     
     @Override
-    public R Create(T item, Callback<R> callback) throws Exception {
+    public <R> R Create(T item, Callback<R> callback) throws Exception {
         Objects.requireNonNull(item);
         Objects.requireNonNull(callback);
         return CreateImpl(item, callback);
     }
     
-    protected abstract R CreateImpl(T item, Callback<R> callback) throws Exception;
+    protected abstract <R> R CreateImpl(T item, Callback<R> callback) throws Exception;
     
     public static int[] readPixel(IFullyReader reader, PixelConverter converter, int width, int height) throws Exception {
         int row = converter.getRow();

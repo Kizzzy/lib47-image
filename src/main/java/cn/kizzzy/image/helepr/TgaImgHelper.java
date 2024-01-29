@@ -9,7 +9,7 @@ import java.awt.image.BufferedImage;
 
 public class TgaImgHelper {
     
-    private static final ImageCreator<TgaFile, BufferedImage> creator
+    private static final ImageCreator<TgaFile> creator
         = new TgaImageCreator();
     
     public static BufferedImage toImage(TgaFile tgaFile) throws Exception {
